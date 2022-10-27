@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #e5e5e5;
+}
+.allCards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    .card{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        width: 19%;
+        height: 35vh;
+        background-color: #fefefe;
+        border-radius: 10px;
+        margin: 3% 1%;
+        position: relative;
+        box-shadow: 0px 0px 10px rgb(63, 63, 63);
+        img{
+            width: 80%;
+            height: 30vh;
+            position: absolute;
+            top: -15px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 10px rgb(63, 63, 63);
+        }
+        h3{
+            color: black;
+            z-index: 5;
+            padding: 5% 0;
+        }
+    }
+}
