@@ -21,6 +21,7 @@ body{
         border-radius: 10px;
         margin: 3% 1%;
         position: relative;
+        box-sizing: border-box;
         box-shadow: 0px 0px 10px rgb(63, 63, 63);
         img{
             width: 80%;
@@ -33,7 +34,55 @@ body{
         h3{
             color: black;
             z-index: 5;
-            padding: 5% 0;
+            padding: 5% 2%;
+            font-size: 18px;
+            text-align: center;
+        }
+    }
+}
+@media (max-width: 1150px){
+    .allCards{
+        .card{
+            width: 19%;
+            height: 33vh;
+            img{
+                width: 70%;
+                height: 25vh;
+            }
+            h3{
+                padding: 3% 2%;
+            }
+        }
+    }
+}
+@media (max-width: 800px){
+    .allCards{
+        .card{
+            width: 29%;
+            height: 37vh;
+            img{
+                width: 85%;
+                height: 28vh;
+            }
+            h3{
+                padding: 10% 2%;
+            }
+        }
+    }
+}
+@media (max-width: 500px){
+    .allCards{
+        .card{
+            width: 85%;
+            height: 50vh;
+            margin: 6% 1%;
+            img{
+                width: 85%;
+                height: 42vh;
+            }
+            h3{
+                padding: 6% 2%;
+            }
         }
     }
 }
