@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import './App.scss';
 import Modal from "./Modal";
+import Pagination from "./Pagination";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -17,18 +18,24 @@ function App() {
   const [page, setPage] = useState(1);
   const [fetching, setFetching] = useState(true);
 
+  const btns = ['on', 'off'];
+  const [active, setActive] = useState(btns[0])
+
   useEffect(() => {
-    console.log('fetching')
     if(fetching){
       fetch(`https://rickandmortyapi.com/api/character?page=${page}`)
       .then((result) => result.json())
       .then((data) => {
-        setCharacters([...characters, ...data.results]);
-        setPage(prevState => prevState + 1);
+        if(active === 'off'){
+          setCharacters([...characters, ...data.results]);
+          setPage(prevState => prevState + 1);
+        } else{
+          setCharacters(data.results)
+        }
       })
       .finally(() => setFetching(false))
     }
-  },[fetching])
+  },[fetching, page])
 
   useEffect(() => {
     document.addEventListener('scroll', scrollHandler);
@@ -66,13 +73,29 @@ function App() {
       </div>)
   })
 
+const paginate = pageNumber => {
+  setPage(pageNumber)
+  setFetching(true)
+}
+const nextPage = () => {
+  setPage(prev => prev + 1)
+  setFetching(true)
+};
+const prevPage = () => {
+  setPage(prev => prev - 1)
+  setFetching(true)
+}
   return (
-    <>
-       <a href="#start" className="top">&#8593;</a>
-
+    <div className="container">
       <div className="allCards" id="start">
         {allCharacters}
+        {active === 'on' ? <Pagination 
+        paginate={paginate}
+        prevPage={prevPage}
+        nextPage={nextPage}
+        /> : false }
       </div>
+
       <Modal 
       active={modalActive} 
       setActive={setModalActive}
@@ -83,8 +106,22 @@ function App() {
       origin={modalOrigin}
       location={modalLocation}
       gender={modalGender}
-       />
-    </>
+      />
+
+      <div className="right_side">
+        <div className="toggle">
+        {btns.map(btn => (
+          <button
+          className="blue"
+          key={btn}
+          active={active === btn}
+          onClick={() => setActive(btn)}
+          >{btn}</button>
+        ))}
+        </div>
+        <a href="#start" className="top blue">&#8593;</a>
+      </div>
+    </div>
   );
 }
 

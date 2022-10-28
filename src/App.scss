@@ -10,78 +10,100 @@ body{
     font-family: $font-monsterrat;
     background-color: #e5e5e5;
 }
-.top{
-    width: 50px;
-    height: 50px;
-    background-color: #71bccf;
-    border-radius: 50%;
+.container{
     display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    font-size: 2rem;
-    color: #e5e5e5;
-    position: fixed;
-    right: 1.5%;
-    bottom: 5%;
-    z-index: 40;
-    border: #5fa2b3 1px solid;
-    transition: 0.5s;
-    box-sizing: border-box;
-    &:hover{
-        box-shadow: 0 0 6px #5fa2b3;
-        transform: scale(1.01);
+
+    .right_side{
+        position: fixed;
+        right: 1%;
+        top: 5%;
+        width: 4%;
+        .toggle{
+            display: flex;
+            height: 20vh;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+        .blue{
+            width: 50px;
+            height: 50px;
+            background-color: #71bccf;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #e5e5e5;
+            z-index: 40;
+            border: #5fa2b3 1px solid;
+            transition: 0.5s;
+            box-sizing: border-box;
+            &:hover{
+                box-shadow: 0 0 6px #5fa2b3;
+                transform: scale(1.01);
+            }
+            &:active{
+                border: #3d7482 1px solid;
+                background-color: #5fa2b3;
+                box-shadow: none;
+                color: #97cfdd;
+            }
+        }
+        .top{
+            text-decoration: none;
+            font-size: 2rem;
+            position: fixed;
+            right: 1.5%;
+            bottom: 5%;
+            
+            
+        }
     }
-    &:active{
-        border: #3d7482 1px solid;
-        background-color: #5fa2b3;
-        box-shadow: none;
-        color: #97cfdd;
-    }
-}
-.allCards{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    width: 96%;
-    .card{
+    
+    .allCards{
         display: flex;
-        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-around;
         align-items: center;
-        justify-content: flex-end;
-        width: 15%;
-        height: 20vh;
-        background-color: #fefefe;
-        border-radius: 10px;
-        margin: 1.5% 1%;
-        position: relative;
-        box-sizing: border-box;
-        box-shadow: 0px 0px 10px rgb(63, 63, 63);
-        cursor: pointer;
-        transition: 1s;
-        &:hover{
-            transform: scale(1.02);
-        }
-        img{
-            width: 70%;
-            height: 15vh;
-            position: absolute;
-            top: -15px;
+        width: 96%;
+        .card{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            width: 15%;
+            height: 20vh;
+            background-color: #fefefe;
             border-radius: 10px;
-            box-shadow: 0px 5px 10px rgb(63, 63, 63);
+            margin: 1.5% 1%;
+            position: relative;
+            box-sizing: border-box;
+            box-shadow: 0px 0px 10px rgb(63, 63, 63);
+            cursor: pointer;
+            transition: 1s;
+            &:hover{
+                transform: scale(1.02);
+            }
+            img{
+                width: 70%;
+                height: 15vh;
+                position: absolute;
+                top: -15px;
+                border-radius: 10px;
+                box-shadow: 0px 5px 10px rgb(63, 63, 63);
+            }
+            h3{
+                color: black;
+                z-index: 5;
+                padding: 2%;
+                font-size: 18px;
+                text-align: center;
+                font-weight: 400;
+            }
+            
         }
-        h3{
-            color: black;
-            z-index: 5;
-            padding: 2%;
-            font-size: 18px;
-            text-align: center;
-            font-weight: 400;
-        }
-        
     }
 }
+
 @media (max-width: 1150px){
     .allCards{
         .card{
