@@ -68,7 +68,9 @@ function App() {
 
   return (
     <>
-      <div className="allCards">
+       <a href="#start" className="top">&#8593;</a>
+
+      <div className="allCards" id="start">
         {allCharacters}
       </div>
       <Modal 
