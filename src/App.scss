@@ -20,11 +20,11 @@ body{
         flex-direction: column;
         align-items: center;
         justify-content: flex-end;
-        width: 19%;
-        height: 35vh;
+        width: 15%;
+        height: 20vh;
         background-color: #fefefe;
         border-radius: 10px;
-        margin: 3% 1%;
+        margin: 1.5% 1%;
         position: relative;
         box-sizing: border-box;
         box-shadow: 0px 0px 10px rgb(63, 63, 63);
@@ -34,8 +34,8 @@ body{
             transform: scale(1.02);
         }
         img{
-            width: 80%;
-            height: 30vh;
+            width: 70%;
+            height: 15vh;
             position: absolute;
             top: -15px;
             border-radius: 10px;
@@ -44,7 +44,7 @@ body{
         h3{
             color: black;
             z-index: 5;
-            padding: 5% 2%;
+            padding: 2%;
             font-size: 18px;
             text-align: center;
             font-weight: 400;
