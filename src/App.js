@@ -14,14 +14,35 @@ function App() {
   const [modalLocation, setModalLocation] = useState(null);
   const [modalGender, setModalGender] = useState(null);
 
+  const [page, setPage] = useState(1);
+  const [fetching, setFetching] = useState(true);
 
   useEffect(() => {
-    fetch('https://rickandmortyapi.com/api/character')
-    .then((result) => result.json())
-    .then((data) => {
-      setCharacters(data.results)
-    })
-  },[])
+    console.log('fetching')
+    if(fetching){
+      fetch(`https://rickandmortyapi.com/api/character?page=${page}`)
+      .then((result) => result.json())
+      .then((data) => {
+        setCharacters([...characters, ...data.results]);
+        setPage(prevState => prevState + 1);
+      })
+      .finally(() => setFetching(false))
+    }
+  },[fetching])
+
+  useEffect(() => {
+    document.addEventListener('scroll', scrollHandler);
+
+    return function(){
+      document.removeEventListener('scroll', scrollHandler)
+    }
+  }, [])
+
+  const scrollHandler = (e) => {
+    if(e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerWidth) < 100){
+      setFetching(true)
+    }
+  }
 
   const allCharacters = characters.map((item) => {
     return (
@@ -39,8 +60,7 @@ function App() {
           setModalOrigin(item.origin.name);
           setModalLocation(item.location.name);
           setModalGender(item.gender);
-        }
-        }}>
+        }}}>
         <img src={`${item.image}`} alt={`${item.name}`} />
         <h3>{`${item.name}`}</h3>
       </div>)
