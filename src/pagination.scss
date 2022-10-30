@@ -67,6 +67,54 @@ $font-monsterrat: 'Montserrat', sans-serif;
             height: 4vh;
             border-radius: 20px;
             @extend %base-button;
+            &:disabled{
+                background-color: gray;
+            }
         }
     }
+}
+@media (max-width: 1150px){
+    .container_pagination{
+        .pagination{
+            width: 95%;
+            flex-wrap: wrap;
+            justify-content: center;
+            li{
+                width: 25px;
+                height: 25px;
+                margin: 0 0 1% 0.8%;
+                font-size: 0.8rem;
+            }
+        }
+    }
+}
+@media (max-width: 800px){
+    .container_pagination{
+        height: 27vh;
+        .pagination{
+            li{
+                width: 30px;
+                height: 30px;
+            }
+        }
+    }
+}
+@media (max-width: 600px){
+    .container_pagination{
+        height: 40vh;
+        .pagination{
+            li{
+                width: 33px;
+                height: 33px;
+            }
+        }
+        .buttons{
+            button{
+                width: 70%;
+                height: 4.5vh;
+                margin-left: 3%;
+            }
+        }
+    }
+    
 }

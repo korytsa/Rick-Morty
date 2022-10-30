@@ -12,12 +12,21 @@ body{
 }
 .container{
     display: flex;
-
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
     .right_side{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 90vh;
         position: fixed;
         right: 1%;
         top: 5%;
-        width: 4%;
+        h3{
+            color: #5fa2b3;
+        }
         .toggle{
             display: flex;
             height: 20vh;
@@ -51,11 +60,6 @@ body{
         .top{
             text-decoration: none;
             font-size: 2rem;
-            position: fixed;
-            right: 1.5%;
-            bottom: 5%;
-            
-            
         }
     }
     
@@ -64,7 +68,7 @@ body{
         flex-wrap: wrap;
         justify-content: space-around;
         align-items: center;
-        width: 96%;
+        width: 94%;
         .card{
             display: flex;
             flex-direction: column;
@@ -105,48 +109,109 @@ body{
 }
 
 @media (max-width: 1150px){
-    .allCards{
-        .card{
-            width: 19%;
-            height: 33vh;
-            img{
-                width: 70%;
-                height: 25vh;
+    .container{
+        flex-direction: column;
+        .right_side{
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            top: 0;
+            left: 0;
+            right: 1.5%;
+            height: 9vh;
+            background-color: #e5e5e5;
+            z-index: 49;
+            .toggle{
+                display: flex;
+                align-items: center;
+                flex-direction: row;
+                height: 9vh;
+                margin: 0 10%;
+                width: 20%;
+                h3{
+                    margin-left: 5%;
+                    font-size: 20px;
+                }
+                button{
+                    margin: 0 2%;
+                }
             }
-            h3{
-                padding: 3% 2%;
+            .blue{
+                width: 40px;
+                height: 40px;
+            }
+        }
+        .allCards{
+            margin-top: 9vh;
+            .card{
+                width: 29%;
+                height: 22vh;
+                img{
+                    width: 70%;
+                    height: 17vh;
+                }
+                h3{
+                    padding: 3% 2%;
+                }
             }
         }
     }
+    
 }
 @media (max-width: 800px){
-    .allCards{
-        .card{
-            width: 29%;
-            height: 37vh;
-            img{
-                width: 85%;
-                height: 28vh;
+    .container{
+        .right_side{
+            .toggle{
+                width: 30%;
+                button{
+                    margin: 0 3%;
+                }
             }
-            h3{
-                padding: 10% 2%;
+        }
+        .allCards{
+            .card{
+                width: 48%;
+                height: 36vh;
+                margin: 5% 1%;
+                img{
+                    width: 85%;
+                    height: 29vh;
+                }
+                h3{
+                    font-size: 19px;
+                    padding: 3% 2%;
+                }
             }
         }
     }
 }
-@media (max-width: 500px){
-    .allCards{
-        .card{
-            width: 85%;
-            height: 50vh;
-            margin: 6% 1%;
-            img{
-                width: 85%;
-                height: 42vh;
+@media (max-width: 600px){
+    .container{
+        .right_side{
+            width: 100vw;
+            .toggle{
+                width: 40%;
+                button{
+                    margin: 0 3%;
+                }
             }
-            h3{
-                padding: 6% 2%;
+        }
+        .allCards{
+            .card{
+                width: 85%;
+                height: 50vh;
+                margin: 6% 1%;
+                img{
+                    width: 85%;
+                    height: 42vh;
+                }
+                h3{
+                    font-size: 20px;
+                    padding: 4% 2%;
+                }
             }
         }
     }
+    
 }

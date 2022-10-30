@@ -15,7 +15,6 @@ export default function Pagination ({ paginate, prevPage, nextPage }) {
                         <li key={number} onClick={() => paginate(number)}>{number}</li>
                     ))
                 }
-                
             </ul>
             <div className='buttons'>
                 <button onClick={() => prevPage()}>Prev</button>

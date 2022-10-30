@@ -19,7 +19,7 @@ function App() {
   const [fetching, setFetching] = useState(true);
 
   const btns = ['on', 'off'];
-  const [active, setActive] = useState(btns[0])
+  const [active, setActive] = useState(btns[0]);
 
   useEffect(() => {
     if(fetching){
@@ -78,12 +78,20 @@ const paginate = pageNumber => {
   setFetching(true)
 }
 const nextPage = () => {
-  setPage(prev => prev + 1)
-  setFetching(true)
+  if(page >= 42){
+    setFetching(false)
+  }else{
+    setPage(prev => prev + 1)
+    setFetching(true)
+  }
 };
 const prevPage = () => {
-  setPage(prev => prev - 1)
-  setFetching(true)
+  if(page <= 1){
+    setFetching(false)
+  }else{
+    setPage(prev => prev - 1)
+    setFetching(true)
+  }
 }
   return (
     <div className="container">
@@ -109,15 +117,16 @@ const prevPage = () => {
       />
 
       <div className="right_side">
-        <div className="toggle">
-        {btns.map(btn => (
-          <button
-          className="blue"
-          key={btn}
-          active={active === btn}
-          onClick={() => setActive(btn)}
-          >{btn}</button>
-        ))}
+          <div className="toggle">
+          <h3>Page</h3>
+          {btns.map(btn => (
+            <button
+            className="blue"
+            key={btn}
+            active={active === btn}
+            onClick={() => setActive(btn)}
+            >{btn}</button>
+          ))}
         </div>
         <a href="#start" className="top blue">&#8593;</a>
       </div>
