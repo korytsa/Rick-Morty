@@ -103,7 +103,6 @@ const prevPage = () => {
   }
 }
 
-
   return (
     <div >
       {load ? (
