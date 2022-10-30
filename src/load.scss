@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+
+$font-monsterrat: 'Montserrat', sans-serif;
+
+.loader_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    .spinner{
+        width: 3rem;
+        height: 3rem;
+        border: 5px solid skyblue;
+        border-image: linear-gradient(to right top, #71bccf, #155d6f, #97cfdd);
+        border-image-slice: 1;
+        transition: 1s;
+        animation: circle 3s 0s infinite;
+    }
+    .loading{
+        font-weight: 300;
+        font-size: 3rem;
+        margin-left: 3rem;
+    }
+}
+@keyframes circle{
+    0%{
+        transform: rotate(0);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 4000px){
+    .loader_container{
+        .spinner{
+            width: 3rem;
+            height: 3rem;
+            border: 1.6rem solid skyblue;
+            border-image: linear-gradient(to right top, #71bccf, #316e7d, #97cfdd);
+            border-image-slice: 1;
+        }
+        .loading{
+            font-size: 7rem;
+            margin-left: 5rem;
+        }
+    } 
+}
+@media (max-width: 2000px){
+    .loader_container{
+        .spinner{
+            width: 5rem;
+            height: 5rem;
+            border: 1.3rem solid skyblue;
+            border-image: linear-gradient(to right top, #71bccf, #316e7d, #97cfdd);
+            border-image-slice: 1;
+        }
+        .loading{
+            font-size: 5rem;
+            margin-left: 4rem;
+        }
+    } 
+}
+@media (max-width: 1150px){
+    .loader_container{
+        .spinner{
+            width: 3rem;
+            height: 3rem;
+            border: 1rem solid skyblue;
+            border-image: linear-gradient(to right top, #71bccf, #316e7d, #97cfdd);
+            border-image-slice: 1;
+        }
+        .loading{
+            font-size: 2.6rem;
+            margin-left: 3rem;
+        }
+    } 
+}
+@media (max-width: 800px){
+    .loader_container{
+        .spinner{
+            width: 2.5rem;
+            height: 2.5rem;
+            border: 0.8rem solid skyblue;
+            border-image: linear-gradient(to right top, #71bccf, #316e7d, #97cfdd);
+            border-image-slice: 1;
+        }
+        .loading{
+            font-size: 2.4rem;
+            margin-left: 3rem;
+        }
+    } 
+}
+@media (max-width: 600px){
+    .loader_container{
+        .spinner{
+            width: 2rem;
+            height: 2rem;
+            border: 0.5rem solid skyblue;
+            border-image: linear-gradient(to right top, #71bccf, #316e7d, #97cfdd);
+            border-image-slice: 1;
+        }
+        .loading{
+            font-size: 2rem;
+            margin-left: 2rem;
+        }
+    } 
+}

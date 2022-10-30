@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import './App.scss';
+import Load from "./Load";
 import Modal from "./Modal";
 import Pagination from "./Pagination";
 
@@ -21,6 +22,8 @@ function App() {
   const btns = ['on', 'off'];
   const [active, setActive] = useState(btns[0]);
 
+  const [load, setLoading] = useState(true)
+
   useEffect(() => {
     if(fetching){
       fetch(`https://rickandmortyapi.com/api/character?page=${page}`)
@@ -34,8 +37,14 @@ function App() {
         }
       })
       .finally(() => setFetching(false))
+    } else {
+      setLoading(false)
     }
   },[fetching, page])
+
+  useEffect(() => {
+    setLoading(true);
+  }, [page]);
 
   useEffect(() => {
     document.addEventListener('scroll', scrollHandler);
@@ -93,8 +102,13 @@ const prevPage = () => {
     setFetching(true)
   }
 }
+
+
   return (
-    <div className="container">
+    <div >
+      {load ? (
+      <Load />) : 
+      (<div className="container">
       <div className="allCards" id="start">
         {allCharacters}
         {active === 'on' ? <Pagination 
@@ -116,20 +130,21 @@ const prevPage = () => {
       gender={modalGender}
       />
 
-      <div className="right_side">
-          <div className="toggle">
-          <h3>Page</h3>
-          {btns.map(btn => (
-            <button
-            className="blue"
-            key={btn}
-            active={active === btn}
-            onClick={() => setActive(btn)}
-            >{btn}</button>
-          ))}
-        </div>
-        <a href="#start" className="top blue">&#8593;</a>
+    <div className="right_side">
+        <div className="toggle">
+        <h3>Page</h3>
+        {btns.map(btn => (
+          <button
+          className="blue"
+          key={btn}
+          active={active === btn}
+          onClick={() => setActive(btn)}
+          >{btn}</button>
+        ))}
       </div>
+      <a href="#start" className="top blue">&#8593;</a>
+    </div>
+    </div>)}
     </div>
   );
 }
