@@ -10,7 +10,7 @@ $font-monsterrat: 'Montserrat', sans-serif;
     box-sizing: border-box;
     padding: 1%;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1.1rem;
     &:hover{
         box-shadow: 0 0 6px #5fa2b3;
         transform: scale(1.02);
@@ -45,8 +45,8 @@ $font-monsterrat: 'Montserrat', sans-serif;
         justify-content: space-around;
         list-style-type: none;
         li{
-            width: 20px;
-            height: 20px;
+            width: 1.5rem;
+            height: 1.5rem;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -67,9 +67,6 @@ $font-monsterrat: 'Montserrat', sans-serif;
             height: 4vh;
             border-radius: 20px;
             @extend %base-button;
-            &:disabled{
-                background-color: gray;
-            }
         }
     }
 }
