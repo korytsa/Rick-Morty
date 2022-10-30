@@ -22,21 +22,23 @@ function App() {
   const btns = ['on', 'off'];
   const [active, setActive] = useState(btns[0]);
 
-  const [load, setLoading] = useState(true)
+  const [load, setLoading] = useState(true);
 
   useEffect(() => {
     if(fetching){
-      fetch(`https://rickandmortyapi.com/api/character?page=${page}`)
-      .then((result) => result.json())
-      .then((data) => {
-        if(active === 'off'){
-          setCharacters([...characters, ...data.results]);
-          setPage(prevState => prevState + 1);
-        } else{
-          setCharacters(data.results)
-        }
-      })
-      .finally(() => setFetching(false))
+    fetch(`https://rickandmortyapi.com/api/character?page=${page}`)
+    .then((result) => result.json())
+    .then((data) => {
+      if(active === 'off'){
+        setCharacters([...characters, ...data.results]);
+        setPage(prevState => prevState + 1);
+        setLoading(true);
+
+      } else{
+        setCharacters(data.results)
+      }
+    })
+    .finally(() => setFetching(false))
     } else {
       setLoading(false)
     }
@@ -44,6 +46,9 @@ function App() {
 
   useEffect(() => {
     setLoading(true);
+    if(active === 'off'){
+      setLoading(false);
+    }
   }, [page]);
 
   useEffect(() => {
@@ -55,8 +60,10 @@ function App() {
   }, [])
 
   const scrollHandler = (e) => {
+    
     if(e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerWidth) < 100){
-      setFetching(true)
+      setFetching(true);
+      setLoading(false);
     }
   }
 
@@ -137,7 +144,9 @@ const prevPage = () => {
           className="blue"
           key={btn}
           active={active === btn}
-          onClick={() => setActive(btn)}
+          onClick={() => {
+            setActive(btn)
+          }}
           >{btn}</button>
         ))}
       </div>
